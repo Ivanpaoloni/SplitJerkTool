@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows;
 
 namespace SplitJerkTool
@@ -9,6 +10,12 @@ namespace SplitJerkTool
         {
             InitializeComponent();
             this.MouseLeftButtonDown += (sender, e) => this.DragMove();
+            // Obtener la versión de la aplicación
+
+            var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+            // Asignar la versión al TextBlock en el XAML
+            VersionTextBlock.Text = "Versión: " + version;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
