@@ -9,24 +9,20 @@
         WindowStyle="None" ResizeMode="NoResize" Background="{x:Null}" AllowsTransparency="True">
 
     <Grid>
-        <!-- Dividimos la ventana en dos filas -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Para el título -->
             <RowDefinition Height="*"/>
-            <!-- Para el contenido -->
         </Grid.RowDefinitions>
 
-        <!-- Contenido principal -->
         <materialDesign:Card Grid.Row="1" Margin="10" UniformCornerRadius="15">
             <Grid>
-                <!-- Dividimos las columnas: una para formularios, otra para la imagen -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
+                    <!--formulario-->
                     <ColumnDefinition Width="2*"/>
+                    <!--imagen y boton-->
                 </Grid.ColumnDefinitions>
 
-                <!-- Formulario de Entradas y Resultados -->
                 <Grid Grid.Column="0" Margin="20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -41,19 +37,18 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <!-- Título de la ventana -->
+                    <!-- Título -->
                     <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,10,0,10">
                         <TextBlock Grid.Row="0"
                             Text="Herramienta de Evaluación del Split Jerk" 
                             FontSize="24" 
                             FontWeight="Bold" 
-                            Foreground="Black" 
-                                 materialDesign:HintAssist.Hint="Ingrese el valor"
-                                 Width="518"
-                                 Height="30"
-                                 Margin="10,0"/>
+                            Foreground="Black"
+                            Width="518"
+                            Height="30"
+                            Margin="10,0"/>
                     </StackPanel>
-                    <!-- 1RM Press Sobre La Cabeza -->
+                    
                     <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,10,0,10">
                         <TextBlock Text="1RM Press Sobre La Cabeza:" FontSize="16" VerticalAlignment="Center"/>
                         <TextBox x:Name="PressSobreCabezaInput" 
@@ -64,7 +59,6 @@
                                  TextChanged="OnInputChanged"/>
                     </StackPanel>
 
-                    <!-- 1RM Sentadilla -->
                     <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,10,0,10">
                         <TextBlock Text="1RM Sentadilla:" FontSize="16" VerticalAlignment="Center"/>
                         <TextBox x:Name="SentadillaInput" 
@@ -75,7 +69,6 @@
                                  TextChanged="OnInputChanged"/>
                     </StackPanel>
 
-                    <!-- 1RM Split Jerk -->
                     <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="0,10,0,10">
                         <TextBlock Text="1RM Split Jerk:" FontSize="16" VerticalAlignment="Center"/>
                         <TextBox x:Name="SplitJerkInput" 
@@ -86,7 +79,7 @@
                                  TextChanged="OnInputChanged"/>
                     </StackPanel>
 
-                    <!-- Resultados del Split Jerk -->
+                    <!-- Resultados -->
                     <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="0,10,0,10">
                         <TextBlock Text="Split Jerk Pronosticado del Press SC:" FontSize="16" VerticalAlignment="Center"/>
                         <TextBlock x:Name="SplitJerkPressSCResult" FontSize="16" Foreground="#555" Margin="10,0" VerticalAlignment="Center"/>
@@ -102,25 +95,23 @@
                         <TextBlock x:Name="SplitJerkAmbosResult" FontSize="16" Foreground="#555" Margin="10,0" VerticalAlignment="Center"/>
                     </StackPanel>
 
-                    <!-- Confianza -->
                     <StackPanel Orientation="Horizontal" Grid.Row="7" Margin="0,10,0,10">
                         <TextBlock Text="Confianza:" FontSize="16" VerticalAlignment="Center"/>
                         <TextBlock x:Name="ConfianzaResult" FontSize="16" Foreground="#555" Margin="10,0" VerticalAlignment="Center"/>
                     </StackPanel>
 
-                    <!-- Debilidad Probable -->
                     <StackPanel Orientation="Horizontal" Grid.Row="8" Margin="0,10,0,10">
                         <TextBlock Text="Debilidad Probable:" FontSize="16" VerticalAlignment="Center"/>
                         <TextBlock x:Name="DebilidadProbableResult" FontSize="16" Foreground="#555" Margin="10,0" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Grid>
 
-                <!-- Imagen -->
                 <Grid Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20">
                     <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Margin="10">
-            <TextBlock x:Name="VersionTextBlock" Text="Versión: 1.0.0" FontSize="14" Foreground="Gray"/>
-        </TextBlock>
+                        <TextBlock x:Name="VersionTextBlock" Text="Versión: 1.0.0" FontSize="14" Foreground="Gray"/>
+                    </TextBlock>
                 </Grid>
+                
                 <!-- Imagen -->
                 <Grid Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20">
                     <Image Source="img/splitjerk_image.png" VerticalAlignment="Top" HorizontalAlignment="Center" Stretch="UniformToFill" Height="400" Margin="0,50,0,0" />

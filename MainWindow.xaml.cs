@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Windows;
 
 namespace SplitJerkTool
@@ -10,32 +9,28 @@ namespace SplitJerkTool
         {
             InitializeComponent();
             this.MouseLeftButtonDown += (sender, e) => this.DragMove();
-            // Obtener la versión de la aplicación
-
-            var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-            // Asignar la versión al TextBlock en el XAML
+           
+            // Get Version
+            var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString();
             VersionTextBlock.Text = "Versión: " + version;
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        //close button event
+        private void CloseButton_Click(object sender, RoutedEventArgs e) => this.Close();
 
         private void OnInputChanged(object sender, RoutedEventArgs e)
         {
-            // Obtener los valores de los inputs
+            // get values
             if (double.TryParse(PressSobreCabezaInput.Text, out double pressSobreCabeza) &&
                 double.TryParse(SentadillaInput.Text, out double sentadilla) &&
                 double.TryParse(SplitJerkInput.Text, out double splitJerk))
             {
-                // Cálculos
+                // calculate
                 double splitJerkPressSC = (pressSobreCabeza - 3.174) / 0.5751;
                 double splitJerkSentadilla = (sentadilla - 6.994) / 1.262;
                 double splitJerkAmbos = 0.512 + (sentadilla * 0.6329) + (pressSobreCabeza * 0.2472);
 
-                // Mostrar los resultados
+                // results
                 SplitJerkPressSCResult.Text = splitJerkPressSC.ToString("F2");
                 SplitJerkSentadillaResult.Text = splitJerkSentadilla.ToString("F2");
                 SplitJerkAmbosResult.Text = splitJerkAmbos.ToString("F2");
@@ -90,7 +85,7 @@ namespace SplitJerkTool
             }
             else
             {
-                // Si algún campo está vacío o es incorrecto, se limpian los resultados
+                // limpiar resultados si algun campo esta vacio o existen campos incorrectos
                 SplitJerkPressSCResult.Text = "";
                 SplitJerkSentadillaResult.Text = "";
                 SplitJerkAmbosResult.Text = "";
